@@ -1,0 +1,19 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "Valorant Pack",
+        "name": "Valorant Pack",
+        "uuid": "68627549-1f55-4c75-a0ab-15a2e162b6cf",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 2, 6],
+        "vanilla": [1, 12, 0]
+    },
+    "modules": [
+        {
+            "description": "Valorant Pack",
+            "type": "resources",
+            "uuid": "a0cb76d0-dbe4-4629-9710-f2db743f2ebb",
+            "version": [1, 0, 0]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+	"resource_pack_name": "vanilla",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"waypoint_menu": {
+			"textures": [
+				"textures/items/waypoint_menu"
+			]
+		},
+		"waypoint_control_panel": {
+			"textures": [
+				"textures/items/waypoint_control_panel"
+			]
+		}
+	}
+}

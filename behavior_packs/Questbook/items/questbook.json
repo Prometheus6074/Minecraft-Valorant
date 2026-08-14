@@ -1,0 +1,19 @@
+{
+   "format_version":"1.16.100",
+   "minecraft:item":{
+      "description":{
+         "identifier":"vatonage:questbook",
+         "category":"equipment"
+      },
+      "components":{
+         "minecraft:hand_equipped":false,
+         "minecraft:max_stack_size":1,
+         "minecraft:display_name":{
+            "value":"§cAgent Select\n§fSelect your Agent"
+         },
+         "minecraft:icon":{
+            "texture":"questbook"
+         }
+      }
+   }
+}
