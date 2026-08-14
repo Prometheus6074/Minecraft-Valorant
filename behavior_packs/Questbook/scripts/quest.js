@@ -4,7 +4,7 @@ import {
 
 import {
     world,
-    Items
+    ItemTypes
 } from '@minecraft/server'
 
 import {
@@ -12,7 +12,7 @@ import {
     ModalFormData
 } from '@minecraft/server-ui'
 
-system.events.beforeWatchdogTerminate.subscribe(e => {
+system.beforeEvents.watchdogTerminate.subscribe(e => {
     e.cancel = true
     console.warn(e.terminateReason)
 })
@@ -80,7 +80,7 @@ function showWiki(player) {
         .button("Search", `textures/ui/magnifyingGlass`)
     let count = 0
     for (const i of items) {
-        if (Items.get(i)) {
+        if (ItemTypes.get(i)) {
             if (!player.hasTag(i)) {
                 form.button(title[count] + "\n" + addonname[count], `textures/${icon[count]}`)
             } else {
@@ -145,7 +145,7 @@ function showWiki(player) {
                         } else if (response2.selection == 1 && !player.hasTag(items[list[response.selection - 1]])) {
                             for (let i = 0; i < 36; i++) {
                                 if (player.getComponent("inventory").container.getItem(i) && player.getComponent("inventory").container.getItem(i).typeId == items[list[response.selection - 1]]) {
-                                    player.runCommandAsync(`give @s ${rewards[list[[response.selection-1]]][0]} ${rewards[list[[response.selection-1]]][1]}`)
+                                    player.runCommand(`give @s ${rewards[list[[response.selection-1]]][0]} ${rewards[list[[response.selection-1]]][1]}`)
                                     player.addTag(items[list[response.selection - 1]])
                                     break
                                 }
@@ -166,7 +166,7 @@ function searchWiki(player, term) {
         .button("Search", `textures/ui/magnifyingGlass`)
     let count = 0
     for (const i of items) {
-        if (Items.get(i) && (title[count].toLowerCase().includes(term) || addonname[count].toLowerCase().includes(term))) {
+        if (ItemTypes.get(i) && (title[count].toLowerCase().includes(term) || addonname[count].toLowerCase().includes(term))) {
             if (!player.hasTag(i)) {
                 form.button(title[count] + "\n" + addonname[count], `textures/${icon[count]}`)
             } else {
@@ -231,7 +231,7 @@ function searchWiki(player, term) {
                         } else if (response2.selection == 1 && !player.hasTag(items[list[response.selection - 1]])) {
                             for (let i = 0; i < 36; i++) {
                                 if (player.getComponent("inventory").container.getItem(i) && player.getComponent("inventory").container.getItem(i).typeId == items[list[response.selection - 1]]) {
-                                    player.runCommandAsync(`give @s ${rewards[list[[response.selection-1]]][0]} ${rewards[list[[response.selection-1]]][1]}`)
+                                    player.runCommand(`give @s ${rewards[list[[response.selection-1]]][0]} ${rewards[list[[response.selection-1]]][1]}`)
                                     player.addTag(items[list[response.selection - 1]])
                                     break
                                 }
@@ -571,8 +571,8 @@ function showRoles(player) {
     })
 }
 
-world.events.itemUse.subscribe(v => {
-    if (v.item.typeId == "vatonage:questbook") {
+world.afterEvents.itemUse.subscribe(v => {
+    if (v.itemStack.typeId == "vatonage:questbook") {
         if (v.source.hasTag("SelectedAgent")) {
             showWiki(v.source)
         } else {

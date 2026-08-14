@@ -5,8 +5,8 @@
       "description":"Created by Vatonage",
       "min_engine_version":[
          1,
-         18,
-         30
+         21,
+         90
       ],
       "uuid":"73c471e6-a763-4d00-8864-9826484ba82b",
       "version":[
@@ -40,11 +40,11 @@
   "dependencies": [
     {
       "module_name": "@minecraft/server",
-      "version": "1.1.0-beta"
+      "version": "2.9.0"
     },
     {
       "module_name": "@minecraft/server-ui",
-      "version": "1.0.0-beta"
+      "version": "2.1.0"
     }
   ]
 }
