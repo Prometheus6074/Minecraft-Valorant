@@ -1,9 +1,11 @@
 {
-   "format_version":"1.16.100",
+   "format_version":"1.21.90",
    "minecraft:item":{
       "description":{
          "identifier":"vatonage:questbook",
-         "category":"equipment"
+         "menu_category":{
+            "category":"equipment"
+         }
       },
       "components":{
          "minecraft:hand_equipped":false,
